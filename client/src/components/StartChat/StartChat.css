@@ -1,10 +1,4 @@
 /* StartChat Specific CSS */
-.room-details-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
 .start-chat-container.glass-panel {
     max-width: 960px;
     width: 100%;
@@ -13,6 +7,25 @@
 .start-chat-content {
     display: flex;
     gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .start-chat-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.room-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .room-details-container {
+        gap: 0.5rem;
+    }
 }
 
 .qr-container {
@@ -70,6 +83,14 @@
     transition: all 0.2s;
     font-family: monospace;
     font-size: 1.1rem;
+    word-break: break-all;
+}
+
+@media (max-width: 480px) {
+    .copyable-field {
+        font-size: 0.95rem;
+        padding: 0.8rem 0.75rem;
+    }
 }
 
 .copyable-field:hover {
@@ -88,4 +109,10 @@
     margin-top: 1.5rem;
     font-size: 0.85rem;
     color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .info-box {
+        margin-top: 0.5rem;
+    }
 }

@@ -75,7 +75,8 @@ export default function ChatPage({
       <div className="chat-header">
         <div>
           <h2>
-            <Shield size={20} color="var(--primary)" /> Session: {roomId}
+            <Shield size={20} color="var(--primary)" className="shield-logo" />{" "}
+            Session: {roomId}
           </h2>
           <p>End-to-End Encrypted</p>
         </div>

@@ -12,7 +12,7 @@ export default function HomeSelection() {
           <Shield size={56} className="text-primary glow" />
         </div>
         <h1>
-          Secure<span>Chat</span>
+          Qk<span>Chat</span>
         </h1>
         <p>End-to-end encrypted, zero-knowledge ephemeral messaging.</p>
       </div>
@@ -23,7 +23,7 @@ export default function HomeSelection() {
           onClick={() => navigate("/start")}
         >
           <div className="card-icon-wrapper">
-            <PlusCircle size={32} />
+            <PlusCircle className="responsive-icon" />
           </div>
           <h2>Start New Chat</h2>
           <p>Generate a secure room and get a QR code to invite your peer.</p>
@@ -34,7 +34,7 @@ export default function HomeSelection() {
           onClick={() => navigate("/join")}
         >
           <div className="card-icon-wrapper">
-            <LogIn size={32} />
+            <LogIn className="responsive-icon" />
           </div>
           <h2>Join a Chat</h2>
           <p>Enter an existing Chat ID or scan a QR code from your peer.</p>

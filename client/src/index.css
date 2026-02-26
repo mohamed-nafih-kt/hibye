@@ -39,6 +39,12 @@ body {
   padding: 1rem;
 }
 
+@media (max-width: 480px) {
+  #root {
+    padding: 0;
+  }
+}
+
 /* Layout Containers */
 .app-container {
   width: 100%;
@@ -48,7 +54,11 @@ body {
   align-items: center;
 }
 
-
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0;
+  }
+}
 
 /* Glass Panels */
 .glass-panel {
@@ -62,6 +72,13 @@ body {
   max-width: 480px;
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
   position: relative;
+}
+
+@media (max-width: 480px) {
+  .glass-panel {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
 }
 
 .panel-header {
@@ -89,6 +106,14 @@ body {
 
 .back-btn:hover {
   color: var(--text-main);
+}
+
+@media(max-width: 768px) {
+  .back-btn {
+    position: relative;
+    margin-bottom: 1rem;
+    top: 0.2rem;
+  }
 }
 
 
