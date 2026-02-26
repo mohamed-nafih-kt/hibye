@@ -7,7 +7,7 @@ export default function Home({ onJoin }) {
   const [mode, setMode] = useState('selection'); // 'selection', 'start', 'join'
   
   // Start Chat State
-  const [newChatDetails, setNewChatDetails] = useState(null);
+  const [newChatDetails, setNewChatDetails] = useState({ id: '', password: '' });
   
   // Join Chat State
   const [joinId, setJoinId] = useState('');
@@ -16,12 +16,11 @@ export default function Home({ onJoin }) {
   const [error, setError] = useState('');
 
   const generateSecureChat = () => {
-    // Generate relatively strong ID and extremely strong password
     const generateSegment = () => Math.random().toString(36).substring(2, 10);
     const randomId = generateSegment() + '-' + generateSegment();
-    const randomPass = generateSegment() + generateSegment() + generateSegment();
     
-    setNewChatDetails({ id: randomId, password: randomPass });
+    // User sets their own password now, just prepopulate a random strong ID
+    setNewChatDetails({ id: randomId, password: '' });
     setMode('start');
   };
 
@@ -37,16 +36,9 @@ export default function Home({ onJoin }) {
 
   const handleQRScanSuccess = (decodedText) => {
     setIsScanning(false);
-    try {
-      const data = JSON.parse(decodedText);
-      if (data.i && data.p) {
-        onJoin(data.i, data.p);
-      } else {
-        setError("Invalid QR format. Could not find room credentials.");
-      }
-    } catch {
-      setError("Unrecognized QR Code.");
-    }
+    setJoinId(decodedText);
+    setError('');
+    // Automatically focus the password field if possible, or just let them see the field.
   };
 
   const copyToClipboard = (text) => {
@@ -88,7 +80,8 @@ export default function Home({ onJoin }) {
 
   // Render "Start New Chat" screen
   if (mode === 'start') {
-    const qrPayload = JSON.stringify({ i: newChatDetails.id, p: newChatDetails.password });
+    // The payload is now purely the chat ID
+    const qrPayload = newChatDetails.id;
     
     return (
       <div className="glass-panel anim-slide">
@@ -100,16 +93,16 @@ export default function Home({ onJoin }) {
 
         <div className="room-details-container">
           <div className="qr-container">
-            <div className="qr-box">
+            <div className="qr-box" style={{ background: 'white', padding: '16px', borderRadius: '12px' }}>
               <QRCode 
                 value={qrPayload} 
                 size={180}
-                bgColor="transparent"
-                fgColor="var(--text-main)"
+                bgColor="#ffffff"
+                fgColor="#000000"
                 level="Q"
               />
             </div>
-            <p className="qr-hint">Have your peer scan this code</p>
+            <p className="qr-hint">Have your peer scan this to get the Chat ID</p>
           </div>
 
           <div className="credentials-box">
@@ -121,10 +114,16 @@ export default function Home({ onJoin }) {
               </div>
             </div>
             <div className="credential-row">
-              <label>Password</label>
-              <div className="copyable-field" onClick={() => copyToClipboard(newChatDetails.password)}>
-                <span>{newChatDetails.password}</span>
-                <Copy size={16} />
+              <label>Set your Password</label>
+              <div className="input-wrapper" style={{ marginTop: '0.25rem' }}>
+               <Lock size={18} className="input-icon" />
+               <input 
+                id="startPassword"
+                type="password" 
+                placeholder="Choose a strong password" 
+                value={newChatDetails.password}
+                onChange={(e) => setNewChatDetails({...newChatDetails, password: e.target.value})}
+               />
               </div>
             </div>
           </div>
@@ -132,13 +131,14 @@ export default function Home({ onJoin }) {
 
         <div className="info-box">
           <Info size={16} />
-          <span>Keep this window open. The session begins when your peer joins.</span>
+          <span>Keep this window open. The session begins when your peer joins with the same Password.</span>
         </div>
 
         <button 
           className="btn-primary" 
+          disabled={!newChatDetails.password.trim()}
           onClick={() => onJoin(newChatDetails.id, newChatDetails.password)}
-          style={{ marginTop: '1.5rem', width: '100%' }}
+          style={{ marginTop: '1.5rem', width: '100%', opacity: newChatDetails.password.trim() ? 1 : 0.5 }}
         >
           Enter Room
         </button>
