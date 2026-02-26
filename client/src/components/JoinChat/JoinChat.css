@@ -1,4 +1,14 @@
 /* JoinChat Specific CSS */
+@media (max-width: 468px) {
+    .join-chat-container.glass-panel {
+        display: flex;
+        flex-direction: column;
+        border-radius: 0;
+        height: 100vh;
+        justify-content: center;
+    }
+}
+
 .join-form {
     display: flex;
     flex-direction: column;

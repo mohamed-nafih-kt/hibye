@@ -33,7 +33,7 @@ export default function JoinChat({ onJoin }) {
   };
 
   return (
-    <div className="glass-panel">
+    <div className="join-chat-container glass-panel">
       <button
         className="back-btn"
         onClick={() => {

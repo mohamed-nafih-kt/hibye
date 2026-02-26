@@ -4,15 +4,13 @@
     width: 100%;
 }
 
-.start-chat-content {
-    display: flex;
-    gap: 20px;
-}
-
-@media (max-width: 768px) {
-    .start-chat-content {
+@media (max-width: 468px) {
+    .start-chat-container.glass-panel {
+        display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        border-radius: 0;
+        height: 100vh;
+        justify-content: center;
     }
 }
 
@@ -25,6 +23,18 @@
 @media (max-width: 768px) {
     .room-details-container {
         gap: 0.5rem;
+    }
+}
+
+.start-chat-content {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .start-chat-content {
+        flex-direction: column;
+        gap: 1.5rem;
     }
 }
 
