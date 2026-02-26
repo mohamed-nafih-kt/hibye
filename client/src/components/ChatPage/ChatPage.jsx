@@ -1,10 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Shield, Lock, Send, LogOut } from 'lucide-react';
-import { encryptMessage } from '../utils/crypto';
+import { useNavigate } from 'react-router-dom';
+import { encryptMessage } from '../../utils/crypto';
+import './ChatPage.css';
 
 export default function ChatPage({ socket, cryptoKey, roomId, messages, setMessages, isConnected, handleLeave }) {
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef(null);
+  const navigate = useNavigate();
+
+  // If a user navigates directly to /chat without a socket connection, boot them back.
+  useEffect(() => {
+    if (!socket || !roomId) {
+      navigate('/');
+    }
+  }, [socket, roomId, navigate]);
 
   useEffect(() => {
     // Scroll to bottom on new message
@@ -36,8 +46,15 @@ export default function ChatPage({ socket, cryptoKey, roomId, messages, setMessa
     }
   };
 
+  const onLeaveClick = () => {
+    handleLeave();
+    navigate('/');
+  };
+
+  if (!socket || !roomId) return null;
+
   return (
-    <div className="glass-panel chat-container">
+    <div className="glass-panel chat-container anim-fade">
       <div className="chat-header">
         <div>
           <h2><Shield size={20} color="var(--primary)" /> Session: {roomId}</h2>

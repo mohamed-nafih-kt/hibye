@@ -1,0 +1,106 @@
+/* JoinChat Specific CSS */
+.join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--primary);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.divider span {
+    padding: 0 1rem;
+}
+
+/* Scanner Wrapper */
+.scanner-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.qr-scanner-wrapper {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+#qr-reader {
+    border: none !important;
+}
+
+#qr-reader img[alt="Info icon"] {
+    display: none !important;
+}
+
+#qr-reader__dashboard_section_csr span {
+    color: var(--text-main) !important;
+}
+
+#qr-reader button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 5px;
+}

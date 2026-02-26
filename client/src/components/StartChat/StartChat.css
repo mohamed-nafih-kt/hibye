@@ -1,0 +1,81 @@
+/* StartChat Specific CSS */
+.room-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px dashed var(--border-color);
+}
+
+.qr-box {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.qr-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.credentials-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.credential-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.credential-row label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.copyable-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.copyable-field:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: rgba(34, 211, 238, 0.05);
+    border-left: 3px solid var(--accent);
+    padding: 1rem;
+    border-radius: 0 12px 12px 0;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
