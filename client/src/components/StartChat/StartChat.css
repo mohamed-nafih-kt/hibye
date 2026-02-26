@@ -5,6 +5,16 @@
     gap: 1.5rem;
 }
 
+.start-chat-container.glass-panel {
+    max-width: 960px;
+    width: 100%;
+}
+
+.start-chat-content {
+    display: flex;
+    gap: 20px;
+}
+
 .qr-container {
     display: flex;
     flex-direction: column;

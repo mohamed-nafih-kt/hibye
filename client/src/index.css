@@ -30,43 +30,6 @@ body {
   position: relative;
 }
 
-/* Stunning Animated Background Mesh */
-body::before,
-body::after {
-  content: "";
-  position: absolute;
-  width: 60vw;
-  height: 60vw;
-  border-radius: 50%;
-  z-index: -1;
-  filter: blur(120px);
-  opacity: 0.15;
-  animation: float 20s infinite alternate ease-in-out;
-}
-
-body::before {
-  background: var(--primary);
-  top: -20vh;
-  left: -10vw;
-}
-
-body::after {
-  background: var(--accent);
-  bottom: -20vh;
-  right: -10vw;
-  animation-delay: -10s;
-}
-
-@keyframes float {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(50px, 50px) scale(1.1);
-  }
-}
-
 #root {
   width: 100%;
   height: 100vh;
@@ -129,6 +92,38 @@ body::after {
 }
 
 
+
+/* Forms (Global) */
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
 
 /* Buttons */
 .btn-primary {
@@ -250,16 +245,6 @@ button.icon-btn:hover {
 }
 
 /* Animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes slide-down {
   from {
     transform: translate(-50%, -20px);
@@ -269,26 +254,6 @@ button.icon-btn:hover {
   to {
     transform: translate(-50%, 0);
     opacity: 1;
-  }
-}
-
-.anim-fade {
-  animation: fade-in 0.4s ease-out forwards;
-}
-
-.anim-slide {
-  animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 

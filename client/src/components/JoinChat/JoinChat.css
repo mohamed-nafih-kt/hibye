@@ -16,36 +16,7 @@
     color: var(--text-muted);
 }
 
-.input-wrapper {
-    position: relative;
-}
 
-.input-icon {
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-}
-
-input {
-    width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    color: var(--text-main);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: all 0.2s;
-    outline: none;
-}
-
-input:focus {
-    border-color: var(--primary);
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
-}
 
 .divider {
     display: flex;
