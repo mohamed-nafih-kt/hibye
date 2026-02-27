@@ -4,14 +4,20 @@
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .start-chat-container.glass-panel {
+        height: 90vh;
+        overflow-y: auto;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 468px) {
     .start-chat-container.glass-panel {
         display: flex;
         flex-direction: column;
         border-radius: 0;
         height: 100vh;
-        overflow-y: auto;
-        justify-content: center;
     }
 }
 
