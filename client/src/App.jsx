@@ -73,11 +73,19 @@ export default function App() {
               },
             ]);
           } else {
+            let msgData;
+            try {
+              msgData = JSON.parse(decryptedText);
+            } catch (err) {
+              // Fallback for older plaintext messages
+              msgData = { type: "text", text: decryptedText };
+            }
+
             setMessages((prev) => [
               ...prev,
               {
                 id: Date.now(),
-                text: decryptedText,
+                ...msgData,
                 isOwn: false,
                 time: new Date().toLocaleTimeString([], {
                   hour: "2-digit",
