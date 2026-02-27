@@ -2,8 +2,13 @@
 .chat-container.glass-panel {
     max-width: 1000px;
     width: 60%;
+    height: 100vh;
+    height: 100dvh;
     padding: 0;
     overflow: hidden;
+
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-top: env(safe-area-inset-top);
 }
 
 @media (max-width: 768px) {
@@ -83,7 +88,13 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.message-bubble .time {
+.message-bubble.own .time {
+    font-size: 12px;
+    color: rgb(190, 190, 190);
+}
+
+.message-bubble.peer .time {
+    font-size: 12px;
     color: gray;
 }
 
