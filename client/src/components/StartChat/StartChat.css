@@ -10,7 +10,14 @@
         flex-direction: column;
         border-radius: 0;
         height: 100vh;
+        overflow-y: auto;
         justify-content: center;
+    }
+}
+
+@media (max-height: 768px) {
+    .panel-header {
+        margin-top: 50px;
     }
 }
 
@@ -55,11 +62,40 @@
     margin-bottom: 1rem;
 }
 
+.qr-code {
+    height: 160px;
+    width: 160px;
+}
+
 .qr-hint {
     font-size: 0.85rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+@media (max-width: 468px) {
+    .qr-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .qr-container p {
+        font-size: 0.6rem;
+    }
+
+    .qr-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 120px;
+        width: 120px;
+    }
+
+    .qr-code {
+        height: 100px;
+        width: 100px;
+    }
 }
 
 .credentials-box {

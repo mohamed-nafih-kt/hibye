@@ -1,15 +1,22 @@
 /* ChatPage Specific CSS */
+html,
+body,
+#root {
+    height: 100%;
+}
+
 .chat-container.glass-panel {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     max-width: 1000px;
     width: 60%;
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100dvh;
+    height: 100%;
     padding: 0;
-    overflow: hidden;
-
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-top: env(safe-area-inset-top);
+    overflow: auto;
 }
+
 
 @media (max-width: 768px) {
     .chat-container.glass-panel {
@@ -17,6 +24,13 @@
         height: 100vh;
         margin: 0;
         border-radius: 0;
+    }
+}
+
+@media (max-width: 468px) {
+    .chat-container.glass-panel {
+        overflow-y: scroll;
+        margin-top: 50px;
     }
 }
 

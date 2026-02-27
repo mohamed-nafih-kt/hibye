@@ -60,8 +60,8 @@ export default function StartChat({ onJoin }) {
           >
             {qrPayload ? (
               <QRCode
+                className="qr-code"
                 value={qrPayload}
-                size={180}
                 bgColor="#ffffff"
                 fgColor="#000000"
                 level="Q"
