@@ -1,16 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import {
-  Shield,
   Lock,
   SendHorizontal,
   LogOut,
   Paperclip,
   File,
   Download,
-  FileText,
-  FileSpreadsheet,
-  FileMusic,
-  AlertCircle,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { encryptMessage } from "../../utils/crypto";
@@ -245,17 +240,7 @@ export default function ChatPage({
                   />
                 ) : (
                   <div className="attached-file">
-                    {msg.fileIcon === "pdf" ? (
-                      <FileText size={24} className="file-icon pdf-icon" />
-                    ) : msg.fileIcon === "spreadsheet" ? (
-                      <FileSpreadsheet size={24} className="file-icon" />
-                    ) : msg.fileIcon === "document" ? (
-                      <FileText size={24} className="file-icon" />
-                    ) : msg.fileIcon === "presentation" ? (
-                      <File size={24} className="file-icon presentation-icon" />
-                    ) : (
-                      <File size={24} className="file-icon" />
-                    )}
+                    <File size={24} className="file-icon" />
                     <div className="file-info">
                       <span className="file-name" title={msg.fileName}>
                         {msg.fileName}

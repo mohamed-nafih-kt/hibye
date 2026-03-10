@@ -193,14 +193,6 @@ body,
     flex-shrink: 0;
 }
 
-.file-icon.pdf-icon {
-    color: #e74c3c;
-}
-
-.file-icon.presentation-icon {
-    color: #f39c12;
-}
-
 .file-info {
     flex: 1;
     min-width: 0;
