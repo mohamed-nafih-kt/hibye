@@ -56,6 +56,8 @@ export default function App() {
         newSocket.on("receive_message", async (data) => {
           // Attempt to decrypt incoming message using the local key
           if (!key) return;
+          
+          console.log("Received encrypted message from server");
           const decryptedText = await decryptMessage(key, {
             ciphertext: data.ciphertext,
             iv: data.iv,
@@ -63,6 +65,7 @@ export default function App() {
 
           if (decryptedText === null) {
             // Could not decrypt -> potentially wrong password or bad data
+            console.error("Failed to decrypt message");
             setMessages((prev) => [
               ...prev,
               {
@@ -76,6 +79,10 @@ export default function App() {
             let msgData;
             try {
               msgData = JSON.parse(decryptedText);
+              console.log("Decrypted message type:", msgData.type);
+              if (msgData.type === "file") {
+                console.log("Received file:", msgData.fileName, msgData.fileType);
+              }
             } catch (err) {
               // Fallback for older plaintext messages
               msgData = { type: "text", text: decryptedText };

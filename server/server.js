@@ -10,7 +10,8 @@ app.use(cors({ origin: '*' }));
 
 const server = http.createServer(app);
 const io = new Server(server, {
-    cors: { origin: '*' }
+    cors: { origin: '*' },
+    maxHttpBufferSize: 100 * 1024 * 1024 // 100MB to handle large file uploads
 });
 
 const PORT = process.env.PORT || 3000;
@@ -30,7 +31,8 @@ io.on('connection', (socket) => {
     // We do NOT store anything on the server.
     socket.on('send_message', (data) => {
         const { roomId, message } = data;
-        console.log(`Relaying message in room: ${roomId}`);
+        const messageSize = JSON.stringify(message).length;
+        console.log(`Relaying message in room: ${roomId} (size: ${(messageSize / 1024 / 1024).toFixed(2)}MB)`);
         socket.to(roomId).emit('receive_message', {
             senderId: socket.id,
             ...message

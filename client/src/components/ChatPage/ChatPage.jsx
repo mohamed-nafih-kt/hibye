@@ -160,6 +160,7 @@ export default function ChatPage({
             fileName: file.name,
             fileType: file.type,
             fileData: base64Data,
+            fileIcon: getFileIcon(file.type),
             isOwn: true,
             time: new Date().toLocaleTimeString([], {
               hour: "2-digit",
