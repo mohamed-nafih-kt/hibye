@@ -7,9 +7,9 @@ body,
 
 .chat-container.glass-panel {
     /* Use the most appropriate viewport unit for mobile browsers. */
-    height: 90vh;   /* Fallback for older browsers */
-    height: 90svh;  /* Small viewport height (better on some mobile browsers) */
-    height: 90dvh;  /* Dynamic viewport height (handles chrome/toolbars) */
+    height: 100vh;   /* Fallback for older browsers */
+    height: 100svh;  /* Small viewport height (better on some mobile browsers) */
+    height: 100dvh;  /* Dynamic viewport height (handles chrome/toolbars) */
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -234,4 +234,92 @@ body,
 .download-btn:hover {
     background: var(--primary);
     color: white;
+}
+
+/* QR Code Modal Styles */
+.qr-code-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.qr-code-modal {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 320px;
+    width: 90%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.qr-code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.qr-code-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-main);
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+
+.qr-code-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.qr-code-content svg {
+    border-radius: 8px;
+    background: white;
+    padding: 1rem;
+}
+
+.qr-code-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    word-break: break-all;
+}
+
+@media (max-width: 480px) {
+    .qr-code-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .qr-code-content svg {
+        max-width: 200px;
+    }
 }

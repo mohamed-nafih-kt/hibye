@@ -6,9 +6,12 @@ import {
   Paperclip,
   File,
   Download,
+  QrCode,
+  X,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { encryptMessage } from "../../utils/crypto";
+import QRCode from "react-qr-code";
 import "./ChatPage.css";
 
 // Supported document file types
@@ -44,6 +47,7 @@ export default function ChatPage({
   handleLeave,
 }) {
   const [newMessage, setNewMessage] = useState("");
+  const [showQRCode, setShowQRCode] = useState(false);
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
@@ -183,7 +187,14 @@ export default function ChatPage({
     <div className="glass-panel chat-container">
       <div className="chat-header">
         <div>
-          <h2>Session: {roomId}</h2>
+          <h2
+            style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: "0.5rem" }}
+            onClick={() => setShowQRCode(!showQRCode)}
+            title="Click to show QR code"
+          >
+            Session: {roomId}
+            <QrCode size={16} />
+          </h2>
           <p>End-to-End Encrypted</p>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -206,6 +217,32 @@ export default function ChatPage({
           </button>
         </div>
       </div>
+
+      {showQRCode && (
+        <div className="qr-code-overlay">
+          <div className="qr-code-modal">
+            <div className="qr-code-header">
+              <h3>Share Session</h3>
+              <button
+                onClick={() => setShowQRCode(false)}
+                className="close-btn"
+                title="Close"
+              >
+                <X size={20} />
+              </button>
+            </div>
+            <div className="qr-code-content">
+              <QRCode
+                value={roomId}
+                size={200}
+                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                viewBox={`0 0 256 256`}
+              />
+              <p className="qr-code-text">Scan to join session: {roomId}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="messages-area">
         {messages.length === 0 && (
