@@ -7,23 +7,38 @@
     gap: 3rem;
 }
 
+@media(max-width: 486px) {
+    .home-container {
+        padding: 20px 10px;
+        gap: 1.5rem;
+    }
+}
 .home-header {
     text-align: center;
 }
 
 .logo-container {
-    display: inline-flex;
-    padding: 1rem;
-    background: rgba(99, 102, 241, 0.1);
-    border-radius: 50%;
+    display: block;
     margin-bottom: 1.5rem;
-    box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
 }
 
-.glow {
+.logo {
+    height: 84px;
     filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
 }
 
+@media(max-width: 486px) {
+    .logo-container {
+        display: flex;
+        gap:10px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    .logo {
+        height: 64px;
+    }
+}
 .text-primary {
     color: var(--primary);
 }

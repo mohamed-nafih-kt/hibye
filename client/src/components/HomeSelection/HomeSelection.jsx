@@ -9,11 +9,11 @@ export default function HomeSelection() {
     <div className="home-container">
       <div className="home-header">
         <div className="logo-container">
-          <Shield size={56} className="text-primary glow" />
-        </div>
+          <img src="/qkchat.png" className="text-primary logo" />        
         <h1>
           Qk<span>Chat</span>
         </h1>
+        </div>
         <p>End-to-end encrypted, zero-knowledge ephemeral messaging.</p>
       </div>
 
