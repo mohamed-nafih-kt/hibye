@@ -44,7 +44,7 @@ export default function StartChat({ onJoin }) {
         &larr; Back
       </button>
       <div className="panel-header">
-        <Shield size={32} className="text-primary" />
+        <img src="/qkchat.png" className="text-primary start-chat-logo" />        
         <h2>Your Secure Room</h2>
       </div>
 

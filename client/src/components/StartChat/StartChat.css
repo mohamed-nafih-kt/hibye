@@ -12,12 +12,19 @@
     }
 }
 
+.start-chat-logo{
+ height: 48px;
+}
+
 @media (max-width: 468px) {
     .start-chat-container.glass-panel {
         display: flex;
         flex-direction: column;
         border-radius: 0;
         height: 100vh;
+    }
+    .start-chat-logo {
+        height: 32px;
     }
 }
 

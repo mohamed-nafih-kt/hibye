@@ -7,9 +7,12 @@ body,
 
 .chat-container.glass-panel {
     /* Use the most appropriate viewport unit for mobile browsers. */
-    height: 90vh;   /* Fallback for older browsers */
+    height: 100vh;   /* Fallback for older browsers */
+    height: 100svh;  /* Small viewport height (better on some mobile browsers) */
+    height: 100dvh;  /* Dynamic viewport height (handles chrome/toolbars) */
     display: flex;
     flex-direction: column;
+    border-radius: 0;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
@@ -19,9 +22,6 @@ body,
 
 @media(max-width: 468px) {
     .chat-container.glass-panel {
-        height: 100vh;   /* Fallback for older browsers */
-        height: 100svh;  /* Small viewport height (better on some mobile browsers) */
-        height: 100dvh;  /* Dynamic viewport height (handles chrome/toolbars) */
         padding: 15px 5px 5px 0;
         border-radius: 0;
     }
