@@ -153,3 +153,11 @@ android/app/build/
 
 # Capacitor cache
 .android/
+
+node_modules/
+android/.gradle/
+android/build/
+android/local.properties
+android/app/build/
+*.keystore
+*.jks
